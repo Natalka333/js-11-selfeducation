@@ -1,17 +1,17 @@
-body {
+/* body {
     background-color: rgb(233, 145, 236);
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  p {
-    margin: 0;
-  }
-  
-  .container {
-    max-width: 428px;
-    padding: 20px 15px;
-    margin: auto;
-  }
+  } */
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 428px;
+  padding: 20px 15px;
+  margin: auto;
+}
