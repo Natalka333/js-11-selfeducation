@@ -7,6 +7,8 @@
 // Change this number to fetch different post
 // const postId = 1;
 
+
+
 // ***ЗАПРОС ПО ID***
 
 // fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
@@ -42,6 +44,9 @@
 //     console.log(post);
 // }
 
+
+
+
 // ****UPDATE*****
 
 // function updatePostById(update, postId) {
@@ -55,9 +60,9 @@
 //     return fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, option).then(response => response.json());
 // }
 
-//     updatePostById({ body: "Hello my cool Nataly!"}, 1 );
-//     updatePostById({ title: 'See you my dear!'}, 2 );
-//     updatePostById({ body: 'Good buy', title: 'I will be back!'}, 3 );
+// updatePostById({ body: "Hello my cool Nataly!" }, 1);
+// updatePostById({ title: 'See you my dear!' }, 2);
+// updatePostById({ body: 'Good buy', title: 'I will be back!' }, 3);
 
 // ***** DELITE****
 
@@ -81,6 +86,8 @@
 
 // removePost(1)
 
+
+
 // ***АСИНХРОННІЕ ЗАПРОСІ***
 
 // const fetchFriends = async () => {
@@ -96,23 +103,49 @@
 
 // ******* 2 ВАРИАНТ   ASYNC *****
 
-function getFruit(name) {
-    const fruits = {
-        apple: 'яблоко',
-        kiwi: 'киви',
-        strawberry: 'клубника',
-    };
-    return Promise.resolve(fruits[name]);
-};
+// function getFruit(name) {
+//     const fruits = {
+//         apple: 'яблоко',
+//         kiwi: 'киви',
+//         strawberry: 'клубника',
+//     };
+//     return Promise.resolve(fruits[name]);
+// };
 
-async function aMakeSmoothie() {
-    // const apple = await getFruit('apple');
-    console.log(await getFruit('apple'));
-    const kiwi = await getFruit('kiwi');
-    console.log(kiwi);
-}
+// async function aMakeSmoothie() {
+//     // const apple = await getFruit('apple');
+//     console.log(await getFruit('apple'));
+//     const kiwi = await getFruit('kiwi');
+//     console.log(kiwi);
+// }
 
-aMakeSmoothie();
+// aMakeSmoothie();
+
+// *** СРАЗУ ВСЕ ПРОМИСІ ОБРАБАТІВАТЬ***
+
+
+// async function aMakeSmoothie() {
+//     try {
+//         // замер времени , сколько віполняется функция time - timeEnd
+//         console.time('aMakeSmoothie');
+
+//         const apple = getFruit('apple');
+//         const kiwi = getFruit('kiwi');
+//         const berry = getFruit('strawberry');
+
+//         const fruits = await Promise.all([apple, kiwi, berry]);
+//         console.log(fruits)
+//         return fruits;
+//         console.timeEnd('aMakeSmoothie');
+//     } catch (error) {
+//         console.log(error);
+//         // console.log(error.name);
+//         // console.log(error.message);
+//         // console.log(error.stack);
+//     }
+// }
+
+// aMakeSmoothie().then(fruits => console.log(fruits));
 
 // *** БЕЗ АСИНКА И АВЕЙТА**
 // function makeSmoothie() {
