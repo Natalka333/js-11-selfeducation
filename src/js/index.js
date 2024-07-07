@@ -11,10 +11,11 @@ const loadBtn = document.querySelector('.btn-load');
 let page = 1;
 let query = '';
 const perPage = 40;
-let simplelightbox;
+
+let simpleLightbox;
 
 formEl.addEventListener('submit', handlechooseImage);
-loadBtn.addEventListener('click', handleloadMoreImages)
+
 function renderCardImage(images) {
     if (!galleryEl) {
         return;
@@ -89,18 +90,20 @@ function handlechooseImage(event) {
 
 const handleloadMoreImages = () => {
     page += 1;
+
     fetchImages(query, page, perPage)
         .then(data => {
-            if (data.perPage * page >= data.totalHits) {
+            if (perPage * page >= data.totalHits) {
                 loadBtn.classList.add('unvisible');
                 Notiflix.Notify.info(`We're sorry, but you've reached the end of search results.`)
             }
 
             if (data.page === data.totalHits) {
                 loadBtn.classList.add('unvisible');
-                renderCardImage(data.hits);
-                simpleLightboxPlugin();
             }
+            renderCardImage(data.hits);
+            simpleLightboxPlugin();
+
         })
         .catch(error => console.log(error));
 };
@@ -119,3 +122,5 @@ function simpleLightboxPlugin() {
     }
 
 }
+
+loadBtn.addEventListener('click', handleloadMoreImages);
